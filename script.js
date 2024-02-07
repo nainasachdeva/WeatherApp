@@ -1,5 +1,3 @@
-//  http://api.weatherapi.com/v1/current.json?key=7b84755c6b6a42c9b1982717240702&q=mumbai&aqi=no
-
 const temperatureField = document.querySelector(".temp");
 const locationField = document.querySelector(".time_location p");
 const dateAndTimeField = document.querySelector(".time_location span");
@@ -10,7 +8,6 @@ const form = document.querySelector("form");
 const body = document.querySelector("body");
 let target = "Lucknow";
 
-// window.addEventListener("load", searchForLocation);
 window.addEventListener("load", preLoad);
 form.addEventListener("submit", searchForLocation);
 
@@ -25,15 +22,7 @@ const fetchResults = async (targetLocation) => {
     let time = data.location.localtime;
     let temp = data.current.temp_c;
     let condition = data.current.condition.text;
-    let conditionIcon = data.current.condition.icon;
-    console.log(temperatureField);    
-    console.log(temp);    
-    console.log(locationField);    
-    console.log(locationName);    
-    console.log(dateAndTimeField);    
-    console.log(time);    
-    console.log(conditionField);    
-    console.log(condition);    
+    let conditionIcon = data.current.condition.icon; 
     updateDetails(temp, locationName, time, condition, conditionIcon);
 }
 
@@ -90,23 +79,3 @@ function getDayName(number){
             break;
     }
 }
-
-
-
-// condition
-// : 
-// {text: 'Mist', icon: '//cdn.weatherapi.com/weather/64x64/day/143.png', code: 1030}
-// temp_c
-// : 
-// 22
-
-
-// localtime
-// : 
-// "2024-02-07 14:57"
-
-// name
-// : 
-// "Lucknow"
-// region
-// : 
